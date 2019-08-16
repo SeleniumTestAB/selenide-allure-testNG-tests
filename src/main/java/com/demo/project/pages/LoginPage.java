@@ -2,11 +2,12 @@ package com.demo.project.pages;
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
+import com.demo.project.config.PropertyFileReader;
 import com.demo.project.utils.ElementUtils;
 import org.openqa.selenium.By;
 
 public class LoginPage {
-    private final String loginPageUrl = "https://orangehrm-demo-6x.orangehrmlive.com/auth/login";
+    private final String loginPageUrl = PropertyFileReader.getProperty("setup.properties", "loginSiteUrl");
     private final By loginInputFieldPath = Selectors.byId("txtUsername");
     private final By passwordInputFieldPath = Selectors.byId("txtPassword");
     private final By loginFormPath = Selectors.byId("frmLogin");
