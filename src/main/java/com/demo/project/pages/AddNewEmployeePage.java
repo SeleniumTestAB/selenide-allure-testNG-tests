@@ -18,12 +18,12 @@ public class AddNewEmployeePage {
         return addNewEmployeeNavigation.goToNextStage(jobStage);
     }
 
-    public PersonalDetailsPage finishNewEmployeeWizard(PersonalDetailsPage personalDetails) {
+    public EmployeeDetailsPage finishNewEmployeeWizard(EmployeeDetailsPage personalDetails) {
         return addNewEmployeeNavigation.saveAndFinishWizard(personalDetails);
     }
 
-    public PersonalDetailsPage finishNewEmployeeWizard(){
-        return addNewEmployeeNavigation.saveAndFinishWizard(new PersonalDetailsPage());
+    public EmployeeDetailsPage finishNewEmployeeWizard(){
+        return addNewEmployeeNavigation.saveAndFinishWizard(new EmployeeDetailsPage());
     }
 
 }

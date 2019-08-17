@@ -1,5 +1,6 @@
 package com.demo.project.pages.navigation;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import com.demo.project.utils.ElementUtils;
@@ -24,7 +25,7 @@ public class NavCollapsibleSection {
 
     private SelenideElement findSectionToggleButton() {
         return collapsibleSectionUtils.finder()
-                .findNestedExistingElement.apply(findSection(), toggleButtonPath);
+                .findNestedInteractableElement.apply(findSection(), toggleButtonPath);
     }
 
     private SelenideElement findToggleStatus() {
@@ -37,6 +38,7 @@ public class NavCollapsibleSection {
     }
 
     public void expand() {
+        findSection().waitUntil(Condition.appears, 9000);
         collapsibleSectionUtils.commenceAction()
                 .clickOnClickableElement(findSectionToggleButton());
         assertThat(isCollapsed()).isTrue();

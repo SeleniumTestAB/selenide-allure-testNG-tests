@@ -4,14 +4,22 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ElementActions extends Expectations {
     public void fillField(SelenideElement field, String givenValue) {
         field.append(givenValue)
                 .shouldNotBe(empty)
                 .shouldHave(value(givenValue));
+    }
+
+    public void clearField(SelenideElement field) {
+        field.clear();
+    }
+
+    public void waitUntilPageLoads() {
+        assertThat((String)executeJavaScript("return document.readyState")).isEqualTo("complete");
     }
 
     public void clickOnClickableElement(SelenideElement element) {

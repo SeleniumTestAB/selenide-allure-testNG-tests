@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="PresentationTestSuite">
+
+
+    <listeners>
+        <listener class-name="com.demo.project.listeners.DemoProjectListener"></listener>
+    </listeners>
+
+    <test name="Poprawne zalogowanie się do aplikacji jako admin biznesowy">
+
+        <classes>
+            <class name="com.demo.project.ui.LoginPageTest">
+                <methods>
+                    <include name="loginAsBusinessAdminPositiveTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Poprawne dodanie nowego pracownika">
+
+        <classes>
+            <class name="com.demo.project.ui.EmployeeListTest">
+                <methods>
+                    <include name="goToEmployeeListPageTest"/>
+                    <include name="addNewEmployeeTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+
+</suite>
