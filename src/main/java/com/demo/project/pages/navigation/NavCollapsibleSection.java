@@ -1,6 +1,6 @@
 package com.demo.project.pages.navigation;
 
-import com.codeborne.selenide.Condition;
+
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import com.demo.project.utils.ElementUtils;
@@ -12,7 +12,8 @@ public class NavCollapsibleSection {
     private ElementUtils collapsibleSectionUtils = new ElementUtils();
     private final String sectionId;
     private final By toggleStatusPath = Selectors.byXpath("./child::a");
-    private final By toggleButtonPath = Selectors.byXpath("./descendant::span[@class = 'material-icons collapsible-indicator']");
+    private final By toggleButtonPath = Selectors.byXpath("./child::a[@class='collapsible-header waves-effect waves-orange']");
+
 
     public NavCollapsibleSection(String sectionId) {
         this.sectionId = sectionId;
@@ -38,7 +39,11 @@ public class NavCollapsibleSection {
     }
 
     public void expand() {
-        findSection().waitUntil(Condition.appears, 9000);
+
+        collapsibleSectionUtils.commenceAction()
+                .waitUntilElementAppears(findSectionToggleButton());
+       collapsibleSectionUtils.commenceAction()
+               .waitUntilElementBecomesActive(findSectionToggleButton());
         collapsibleSectionUtils.commenceAction()
                 .clickOnClickableElement(findSectionToggleButton());
         assertThat(isCollapsed()).isTrue();

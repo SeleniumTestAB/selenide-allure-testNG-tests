@@ -2,18 +2,18 @@ package com.demo.project.pages.wizards.employee;
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
-import com.demo.project.pages.generic.elements.GenericSelectList;
+import com.demo.project.pages.generic.elements.GenericDropdownList;
 import com.demo.project.utils.ElementUtils;
 import org.openqa.selenium.By;
 
 public class PersonalDetailsStage {
     private final ElementUtils personDetailsUtils = new ElementUtils();
-    private final GenericSelectList bloodGroupSelect = new GenericSelectList("1_inputfileddiv", "1");
+    private final GenericDropdownList bloodGroupSelect = new GenericDropdownList("1_inputfileddiv");
     private final By hobbiesInputPath = Selectors.byId("5");
 
 
     public PersonalDetailsStage selectBloodGroup(String givenBloodGroup) {
-        bloodGroupSelect.openSelectContainer()
+        bloodGroupSelect.expandDropdownList()
                 .chooseOption(givenBloodGroup)
                 .checkIfOptionGotSelected(givenBloodGroup);
         return this;

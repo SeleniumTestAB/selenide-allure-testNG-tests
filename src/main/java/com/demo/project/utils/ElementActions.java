@@ -22,6 +22,10 @@ public class ElementActions extends Expectations {
         assertThat((String)executeJavaScript("return document.readyState")).isEqualTo("complete");
     }
 
+    public void waitUntilElementBecomesActive(SelenideElement element) {
+        element.waitUntil(active, 10000);
+    }
+
     public void clickOnClickableElement(SelenideElement element) {
         element.shouldBe(active).click();
     }
@@ -32,7 +36,11 @@ public class ElementActions extends Expectations {
     }
 
     public void waitUntilElementAppears(By pathToElement) {
-        $(pathToElement).waitUntil(appears, 8000);
+        $(pathToElement).waitUntil(appears, 10000);
+    }
+
+    public void waitUntilElementAppears(SelenideElement element) {
+        element.waitUntil(appears, 10000);
     }
 
 }

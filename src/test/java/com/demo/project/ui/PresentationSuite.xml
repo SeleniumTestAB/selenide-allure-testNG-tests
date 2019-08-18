@@ -24,7 +24,10 @@
             <class name="com.demo.project.ui.EmployeeListTest">
                 <methods>
                     <include name="goToEmployeeListPageTest"/>
-                    <include name="addNewEmployeeTest"/>
+                    <include name="startAddNewEmployeeWizardTest"/>
+                    <include name="newEmployeeWizardPersonalDetailsStageTest"/>
+                    <include name="newEmployeeWizardJobStageTest"/>
+                    <include name="finishNewEmployeeWizardTest"/>
                 </methods>
             </class>
         </classes>

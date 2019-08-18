@@ -30,7 +30,7 @@ public class DemoProjectListener implements ISuiteListener, IInvokedMethodListen
         WebDriverManager.firefoxdriver().setup();
         Configuration.browser = "firefox";
         Configuration.browserBinary = System.getenv("FIREFOX_BINARY");
-        Configuration.timeout = 10000;
+        Configuration.timeout = 15000;
     }
 
     @Override

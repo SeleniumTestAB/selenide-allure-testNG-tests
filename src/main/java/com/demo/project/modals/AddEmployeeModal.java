@@ -3,7 +3,7 @@ package com.demo.project.modals;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import com.demo.project.pages.AddNewEmployeePage;
-import com.demo.project.pages.generic.elements.GenericSelectList;
+import com.demo.project.pages.generic.elements.GenericDropdownList;
 import com.demo.project.utils.ElementUtils;
 import org.openqa.selenium.By;
 
@@ -14,7 +14,7 @@ public class AddEmployeeModal {
     private final By firstNameInputPath = Selectors.byId("firstName");
     private final By middleNameInputPath = Selectors.byId("middleName");
     private final By lastNameInputPath = Selectors.byId("lastName");
-    private final GenericSelectList employeeLocationList = new GenericSelectList("location_inputfileddiv", "location");
+    private final GenericDropdownList employeeLocationList = new GenericDropdownList("location_inputfileddiv");
     private final By nextButtonPath = Selectors.byId("systemUserSaveBtn");
 
 
@@ -39,7 +39,7 @@ public class AddEmployeeModal {
     }
 
     public AddEmployeeModal chooseEmployeeLocation(String givenLocation) {
-        employeeLocationList.openSelectContainer()
+        employeeLocationList.expandDropdownList()
                 .chooseOption(givenLocation)
                 .checkIfOptionGotSelected(givenLocation);
         return this;
