@@ -1,5 +1,7 @@
 package com.demo.project.ui;
 
+import com.demo.project.documentation.DocumentedTest;
+import com.demo.project.documentation.EmployeeDocumentation;
 import com.demo.project.pages.AddNewEmployeePage;
 import com.demo.project.pages.EmployeesListViewPage;
 import org.testng.annotations.Test;
@@ -9,6 +11,7 @@ public class EmployeeListTest extends TestBase {
     private AddNewEmployeePage addNewEmployeePage;
 
     @Test
+    @DocumentedTest(byMethod = "addNewEmployeeDocumentation", fromClass = EmployeeDocumentation.class)
     public void goToEmployeeListPageTest() {
      employeesListViewPage = dashboardPage().sidePageNavigation()
                 .expandPimMenu()
@@ -26,6 +29,7 @@ public class EmployeeListTest extends TestBase {
 
     }
     @Test
+    @DocumentedTest(byMethod = "addNewEmployeeDocumentation", fromClass = EmployeeDocumentation.class)
     public void newEmployeeWizardPersonalDetailsStageTest() {
         addNewEmployeePage.personalDetailsStage()
                 .selectBloodGroup("A")
@@ -43,6 +47,7 @@ public class EmployeeListTest extends TestBase {
     }
 
     @Test
+    @DocumentedTest(byMethod = "addNewEmployeeDocumentation", fromClass = EmployeeDocumentation.class)
     public void finishNewEmployeeWizardTest() {
         addNewEmployeePage.finishNewEmployeeWizard()
                 .checkIfEmployeeGotCreated("Mark", "Test");

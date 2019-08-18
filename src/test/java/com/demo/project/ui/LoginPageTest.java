@@ -1,6 +1,8 @@
 package com.demo.project.ui;
 
 import com.demo.project.config.PropertyFileReader;
+import com.demo.project.documentation.DocumentedTest;
+import com.demo.project.documentation.LoginDocumentation;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,6 +19,7 @@ public class LoginPageTest extends TestBase{
     }
 
     @Test
+    @DocumentedTest(byMethod = "loginAsAdminDocumentation", fromClass = LoginDocumentation.class)
     public void loginAsBusinessAdminPositiveTest() {
         open(loginPage().getLoginPageUrl());
         loginPage().fillLoginField(adminLogin)
