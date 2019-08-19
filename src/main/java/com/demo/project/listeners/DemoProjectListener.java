@@ -8,6 +8,7 @@ import org.testng.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 public class DemoProjectListener implements ISuiteListener, IInvokedMethodListener2 {
     @Override
@@ -34,9 +35,13 @@ public class DemoProjectListener implements ISuiteListener, IInvokedMethodListen
 
     @Override
     public void onStart(ISuite suite) {
-        WebDriverManager.firefoxdriver().setup();
-        Configuration.browser = "firefox";
-        Configuration.browserBinary = System.getenv("FIREFOX_BINARY");
+        Configuration.browser = System.getProperty("selenide.browser", "firefox");
+        Map.of("firefox", WebDriverManager.firefoxdriver(),
+                "chrome", WebDriverManager.chromedriver(),
+                "edge", WebDriverManager.edgedriver(),
+                "phantomjs", WebDriverManager.phantomjs())
+                .get(Configuration.browser)
+                .setup();
         Configuration.timeout = 15000;
     }
 

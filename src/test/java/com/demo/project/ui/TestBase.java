@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Accessors(fluent = true)
 @Getter
-public class TestBase {
+public abstract class TestBase {
 
     private final LoginPage loginPage = new LoginPage();
     private final DashboardPage dashboardPage = new DashboardPage();
