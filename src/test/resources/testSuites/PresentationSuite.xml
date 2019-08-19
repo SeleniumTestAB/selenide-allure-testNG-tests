@@ -4,7 +4,7 @@
 
 
     <listeners>
-        <listener class-name="com.demo.project.listeners.DemoProjectListener"></listener>
+        <listener class-name="com.demo.project.listeners.DemoProjectListener"/>
     </listeners>
 
     <test name="Poprawne zalogowanie się do aplikacji jako admin biznesowy">
