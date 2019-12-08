@@ -3,7 +3,7 @@ package com.demo.project.documentation;
 import static j2html.TagCreator.*;
 
 public class EmployeeDocumentation {
-    @SuppressWarnings("unused")
+
     private String addNewEmployeeDocumentation() {
         return html(body(
                 h4(b("Test aim")),
