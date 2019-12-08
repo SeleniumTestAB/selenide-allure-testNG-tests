@@ -3,10 +3,10 @@ package com.demo.project.documentation;
 import static j2html.TagCreator.*;
 
 public class EmployeeDocumentation {
-
+    @SuppressWarnings("unused")
     private String addNewEmployeeDocumentation() {
         return html(body(
-            h4(b("Test aim")),
+                h4(b("Test aim")),
                 p("Checking if user as business admin can add new employee"),
                 p("In order to do that, the user needs to do couple of things"),
                 ol(
