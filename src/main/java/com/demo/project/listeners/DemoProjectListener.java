@@ -39,8 +39,10 @@ public class DemoProjectListener implements ISuiteListener, IInvokedMethodListen
 
     private DesiredCapabilities firefoxCapabilities() {
         DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX);
-        cap.setCapability(CapabilityType.PLATFORM_NAME, Platform.LINUX);
+        cap.setBrowserName("firefox");
+        cap.setVersion("74.0");
+        cap.setCapability("enableVNC", true);
+        cap.setCapability("enableVideo", false);
         return cap;
     }
 
@@ -59,6 +61,7 @@ public class DemoProjectListener implements ISuiteListener, IInvokedMethodListen
         Configuration.browserCapabilities = Map.of("firefox", firefoxCapabilities())
                 .get(Configuration.browser);
         Configuration.timeout = 15000;
+
     }
 
     @Override
