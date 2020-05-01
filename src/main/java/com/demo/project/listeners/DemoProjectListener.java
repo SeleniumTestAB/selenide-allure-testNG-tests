@@ -1,9 +1,11 @@
 package com.demo.project.listeners;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import com.demo.project.documentation.DocumentedTest;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Allure;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.remote.CapabilityType;
@@ -61,6 +63,7 @@ public class DemoProjectListener implements ISuiteListener, IInvokedMethodListen
         Configuration.browserCapabilities = Map.of("firefox", firefoxCapabilities())
                 .get(Configuration.browser);
         Configuration.timeout = 15000;
+        SelenideLogger.addListener("Allure", new AllureSelenide().screenshots(true).savePageSource(false).includeSelenideSteps(false));
 
     }
 
