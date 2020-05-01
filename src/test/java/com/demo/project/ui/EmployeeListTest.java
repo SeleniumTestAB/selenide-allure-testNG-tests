@@ -20,7 +20,7 @@ public class EmployeeListTest extends TestBase {
                 .enterEmployeesListView();
     }
     @Test
-    @Issue("AL-1")
+    @Issue("AL-1, AL-2")
     @TmsLink("AL-1")
     public void startAddNewEmployeeWizardTest() {
         addNewEmployeePage = employeesListViewPage.clickOnAddNewEmployeeButton()

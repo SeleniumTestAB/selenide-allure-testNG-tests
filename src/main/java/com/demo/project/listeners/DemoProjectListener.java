@@ -16,6 +16,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
 
+import static io.qameta.allure.Allure.issue;
+
 public class DemoProjectListener implements ISuiteListener, IInvokedMethodListener2 {
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult, ITestContext context) {
@@ -63,7 +65,8 @@ public class DemoProjectListener implements ISuiteListener, IInvokedMethodListen
         Configuration.browserCapabilities = Map.of("firefox", firefoxCapabilities())
                 .get(Configuration.browser);
         Configuration.timeout = 15000;
-        SelenideLogger.addListener("Allure", new AllureSelenide().screenshots(true).savePageSource(false).includeSelenideSteps(false));
+        SelenideLogger.addListener("Allure", new AllureSelenide().screenshots(true)
+                .savePageSource(false).includeSelenideSteps(true));
 
     }
 
