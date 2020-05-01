@@ -5,6 +5,7 @@ import com.demo.project.documentation.EmployeeDocumentation;
 import com.demo.project.pages.AddNewEmployeePage;
 import com.demo.project.pages.EmployeesListViewPage;
 import io.qameta.allure.Issue;
+import io.qameta.allure.Issues;
 import io.qameta.allure.TmsLink;
 import org.testng.annotations.Test;
 
@@ -20,8 +21,10 @@ public class EmployeeListTest extends TestBase {
                 .enterEmployeesListView();
     }
     @Test
-    @Issue("AL-1")
-    @Issue("AL-2")
+    @Issues({
+            @Issue("AL-1"),
+            @Issue("AL-2")
+    })
     @TmsLink("AL-1")
     public void startAddNewEmployeeWizardTest() {
         addNewEmployeePage = employeesListViewPage.clickOnAddNewEmployeeButton()
