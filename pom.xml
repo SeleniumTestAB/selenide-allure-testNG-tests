@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <commonsio.version>2.6</commonsio.version>
+        <commonsio.version>2.7</commonsio.version>
         <reflections.version>0.9.11</reflections.version>
         <assertj.version>3.13.2</assertj.version>
         <selenide.version>5.2.8</selenide.version>
